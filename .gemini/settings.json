@@ -1,0 +1,25 @@
+{
+  "agentConfig": {
+    "temperature": 0.2,
+    "maxOutputTokens": 8192
+  },
+  "toolUse": {
+    "allowCommandExecution": true,
+    "allowedCommands":[
+      "npm install",
+      "npm ci",
+      "npm run lint",
+      "npm run test",
+      "npm run build",
+      "git status",
+      "git diff",
+      "./init.sh",
+      "./.gemini/skills/run-tests.sh"
+    ],
+    "denyCommands":[
+      "rm -rf /",
+      "rm -rf node_modules",
+      "git push --force"
+    ]
+  }
+}

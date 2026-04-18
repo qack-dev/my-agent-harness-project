@@ -1,0 +1,13 @@
+# AIのコード品質を機械的に担保するフィードバックループ
+pre-commit:
+  parallel: true
+  commands:
+    lint-fix:
+      glob: "*.{js,ts,jsx,tsx}"
+      run: npx eslint {staged_files} --fix
+    type-check:
+      glob: "*.{ts,tsx}"
+      run: npx tsc --noEmit
+    format:
+      glob: "*.{js,ts,jsx,tsx,json,md}"
+      run: npx prettier --write {staged_files}
